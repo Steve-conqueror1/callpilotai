@@ -1,4 +1,4 @@
-import { BookCallButton, CallDemoButton } from "@/components/brand"
+import { GetStartedButton, CallDemoButton } from "@/components/brand"
 import { Container, Eyebrow } from "@/components/section"
 import { site } from "@/lib/site"
 
@@ -28,7 +28,7 @@ export function Demo() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CallDemoButton location="demo" />
-            <BookCallButton location="demo" />
+            <GetStartedButton location="demo" />
           </div>
           <p className="mt-[18px] font-mono text-sm text-fg-faint">{site.phoneDisplay}</p>
         </div>

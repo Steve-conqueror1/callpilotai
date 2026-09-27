@@ -19,14 +19,11 @@ export function Footer() {
           <a href="#faq" className={linkClass}>
             FAQ
           </a>
-          <a
-            href={site.booking}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cta-location="footer"
-            className={linkClass}
-          >
-            Book a Call
+          <a href={site.login} className={linkClass}>
+            Sign in
+          </a>
+          <a href={site.signup} data-cta-location="footer" className={linkClass}>
+            Start free trial
           </a>
           <span className="text-[13.5px] text-fg-dim">
             © {new Date().getFullYear()} {site.name}

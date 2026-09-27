@@ -1,4 +1,4 @@
-import { BookCallButton, CallDemoButton, PulseDot } from "@/components/brand"
+import { GetStartedButton, CallDemoButton, PulseDot } from "@/components/brand"
 import { Container } from "@/components/section"
 import { site } from "@/lib/site"
 
@@ -43,10 +43,10 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CallDemoButton location="hero" />
-            <BookCallButton location="hero" />
+            <GetStartedButton location="hero" />
           </div>
           <p className="mt-[18px] font-mono text-[13px] text-fg-faint">
-            {site.phoneDisplay} — a real CallPilot agent picks up
+            {site.phoneDisplay} — a real CallPilot agent picks up · {site.trial}
           </p>
         </div>
 

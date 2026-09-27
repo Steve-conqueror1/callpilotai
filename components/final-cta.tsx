@@ -1,4 +1,4 @@
-import { BookCallButton, CallDemoButton } from "@/components/brand"
+import { GetStartedButton, CallDemoButton } from "@/components/brand"
 import { Container } from "@/components/section"
 import { site } from "@/lib/site"
 
@@ -10,13 +10,15 @@ export function FinalCta() {
           Stop losing jobs to a ringing phone.
         </h2>
         <p className="mx-auto mt-[22px] max-w-[50ch] text-[17.5px] leading-relaxed text-fg-muted">
-          Call the demo agent to hear it, or book a call and we&apos;ll set your receptionist up for you.
+          Call the demo agent to hear it, then start your free trial — we&apos;ll set your receptionist up with you.
         </p>
         <div className="mt-[34px] flex flex-wrap justify-center gap-3">
           <CallDemoButton size="xl" location="final_cta" />
-          <BookCallButton size="xl" location="final_cta" />
+          <GetStartedButton size="xl" location="final_cta" />
         </div>
-        <p className="mt-5 font-mono text-[13px] text-fg-faint">{site.phoneDisplay}</p>
+        <p className="mt-5 font-mono text-[13px] text-fg-faint">
+          {site.phoneDisplay} · {site.trial}
+        </p>
       </Container>
     </section>
   )

@@ -1,9 +1,10 @@
 // Conversion tracking: the two actions that matter are tapping the phone number
-// and opening the booking page. One delegated listener catches every such link on
+// and heading to the app's signup. One delegated listener catches every such link on
 // the page, so CTAs stay plain server-rendered anchors with no onClick.
 //
 // Events go to window.dataLayer (Google Tag Manager) and to gtag (GA4) when either
-// is present. In GA4, mark `click_to_call` and `booking_click` as key events.
+// is present. In GA4, mark `click_to_call` and `signup_click` as key events
+// (`signup_click` replaced `booking_click` when "Book a Call" became "Start free trial").
 
 import { site } from "@/lib/site"
 
@@ -32,8 +33,8 @@ document.addEventListener(
 
     if (link.protocol === "tel:") {
       track("click_to_call", { link_location: location, phone: site.phoneDisplay })
-    } else if (link.href.startsWith(site.booking)) {
-      track("booking_click", { link_location: location, link_url: link.href })
+    } else if (link.href.startsWith(site.signup)) {
+      track("signup_click", { link_location: location, link_url: link.href })
     }
   },
   { capture: true }

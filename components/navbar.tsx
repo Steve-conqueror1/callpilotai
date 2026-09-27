@@ -1,4 +1,5 @@
 import { CallDemoButton, Logo } from "@/components/brand"
+import { site } from "@/lib/site"
 
 const links = [
   { href: "#problem", label: "Why" },
@@ -26,7 +27,13 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <CallDemoButton size="sm" location="navbar" className="ml-auto md:ml-0" />
+        <a
+          href={site.login}
+          className="ml-auto font-mono text-xs tracking-[0.04em] whitespace-nowrap text-fg-subtle uppercase transition-colors hover:text-fg md:ml-0"
+        >
+          Sign in
+        </a>
+        <CallDemoButton size="sm" location="navbar" />
       </nav>
     </header>
   )

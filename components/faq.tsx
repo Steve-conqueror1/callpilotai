@@ -16,7 +16,7 @@ export const faqs = [
   },
   {
     q: "How long does setup take?",
-    a: "A short call to gather your details, then we build and test the agent and walk you through it before it goes live. Most businesses are answering calls within a few business days.",
+    a: "Start your free trial and tell us about your business — services, hours, service area, how you want urgent calls handled. We build and test the agent with you before it goes live. Most businesses are answering calls within a few business days.",
   },
   {
     q: "Can it book into my calendar?",
@@ -24,7 +24,7 @@ export const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Pricing depends on call volume and how much the agent handles. Book a call and we'll quote you in a few minutes — usually a fraction of a part-time receptionist.",
+    a: "Plans start at $149 CAD a month for 300 minutes of calls, and every plan starts with a 14-day free trial — no credit card. Usually a fraction of a part-time receptionist.",
   },
 ]
 

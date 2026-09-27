@@ -56,21 +56,26 @@ export function CallDemoButton({ size = "lg", location, className }: CtaProps) {
   )
 }
 
-export function BookCallButton({ size = "lg", location, className }: CtaProps) {
+/**
+ * Into the app's signup. Same tab on purpose: the app shares this site's typefaces, colours
+ * and logo, so it reads as the next page of the same product rather than a hand-off.
+ */
+export function GetStartedButton({ size = "lg", location, className }: CtaProps) {
   return (
     <a
-      href={site.booking}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={site.signup}
       data-cta-location={location}
       className={cn(
         ctaBase,
-        "border border-line-strong font-medium text-fg hover:border-line-hover hover:bg-raised",
+        "group border border-line-strong font-medium text-fg hover:border-line-hover hover:bg-raised",
         ctaSizes[size],
         className
       )}
     >
-      Book a Call
+      Start free trial
+      <span aria-hidden className="text-fg-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-fg">
+        →
+      </span>
     </a>
   )
 }
