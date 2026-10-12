@@ -10,4 +10,8 @@ export const site = {
   /** Mirrors the app's trial (server/src/config/plans.ts: TRIAL_DAYS, TRIAL_PLAN). */
   trial: "14-day free trial · no credit card",
   region: "Alberta, Canada",
+  /** Where privacy requests go (the privacy policy). Must be a mailbox someone reads. */
+  privacyEmail: "privacy@callpilotai.ca",
+  /** General contact, shown on the terms of service. */
+  supportEmail: "support@callpilotai.ca",
 } as const;

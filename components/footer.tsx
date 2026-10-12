@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { Logo } from "@/components/brand"
 import { Container } from "@/components/section"
 import { site } from "@/lib/site"
@@ -13,12 +15,18 @@ export function Footer() {
           AI receptionists for Canadian small businesses · {site.region}
         </span>
         <nav aria-label="Footer" className="flex flex-wrap items-center gap-5 md:ml-auto">
-          <a href="#how" className={linkClass}>
+          <Link href="/#how" className={linkClass}>
             How it works
-          </a>
-          <a href="#faq" className={linkClass}>
+          </Link>
+          <Link href="/#faq" className={linkClass}>
             FAQ
-          </a>
+          </Link>
+          <Link href="/privacy" className={linkClass}>
+            Privacy
+          </Link>
+          <Link href="/terms" className={linkClass}>
+            Terms
+          </Link>
           <a href={site.login} className={linkClass}>
             Sign in
           </a>
