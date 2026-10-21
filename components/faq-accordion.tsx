@@ -6,26 +6,22 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Icon } from "@/components/icon"
 
 export function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <Accordion multiple>
+    <Accordion multiple className="overflow-hidden rounded-2xl border border-line bg-panel shadow-card">
       {items.map((item) => (
-        <AccordionItem
-          key={item.q}
-          value={item.q}
-          className="border-t border-hairline not-last:border-b-0 last:border-b"
-        >
-          <AccordionTrigger className="items-center gap-4 rounded-none py-5 text-[16.5px] font-medium hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden">
+        <AccordionItem key={item.q} value={item.q} className="border-b border-hairline last:border-b-0">
+          <AccordionTrigger className="items-center gap-4 rounded-none px-5 py-4 text-base font-semibold transition-colors hover:bg-raised hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden">
             {item.q}
-            <span
-              aria-hidden
-              className="ml-auto text-xl leading-none text-label transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-45"
-            >
-              +
-            </span>
+            <Icon
+              name="expand_more"
+              size={22}
+              className="ml-auto text-fg-muted transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-180"
+            />
           </AccordionTrigger>
-          <AccordionContent className="max-w-[62ch] pb-[22px] text-[15.5px] leading-[1.65] text-fg-subtle">
+          <AccordionContent className="max-w-[66ch] px-5 pb-5 text-[15px] leading-[1.65] text-fg-muted">
             {item.a}
           </AccordionContent>
         </AccordionItem>

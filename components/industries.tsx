@@ -15,15 +15,15 @@ const industries = [
 export function Industries() {
   return (
     <section aria-labelledby="industries-title" className="border-b border-hairline bg-band">
-      <Container className="flex flex-wrap items-center gap-x-[18px] gap-y-2.5 py-5">
-        <h2 id="industries-title" className="font-mono text-[11px] tracking-[0.1em] whitespace-nowrap text-label uppercase">
+      <Container className="flex flex-wrap items-center gap-x-5 gap-y-3 py-5">
+        <h2 id="industries-title" className="text-[13px] font-bold tracking-[0.06em] whitespace-nowrap text-label uppercase">
           Built for
         </h2>
-        <ul className="flex flex-wrap gap-[7px]">
+        <ul className="flex flex-wrap gap-2">
           {industries.map((name) => (
             <li
               key={name}
-              className="rounded-md border border-line px-3 py-1.5 text-[13px] whitespace-nowrap text-fg-muted"
+              className="inline-flex h-[34px] items-center rounded-full bg-panel px-3.5 text-sm font-semibold whitespace-nowrap text-fg shadow-[inset_0_0_0_1.5px_var(--line)]"
             >
               {name}
             </li>

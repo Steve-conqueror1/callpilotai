@@ -1,23 +1,26 @@
 import { Reveal } from "@/components/motion"
-import { Container, Eyebrow, SectionTitle, sectionPadding } from "@/components/section"
+import { Container, Eyebrow, IconTile, SectionTitle, sectionPadding } from "@/components/section"
 
 const scenarios = [
   {
     key: "A",
+    icon: "nights_stay",
     title: "After hours & weekends",
     body: "Emergency calls arrive at 8 PM on a Sunday. CallPilot triages them and pages you only when it's urgent.",
   },
   {
     key: "B",
+    icon: "handyman",
     title: "On the job, hands full",
     body: "Calls get answered while you work. You get a clean summary by text or email instead of a missed-call list.",
   },
   {
     key: "C",
+    icon: "forum",
     title: "The same questions, all day",
     body: "Hours, service area, pricing ranges, warranty, “do you do free estimates” — handled without interrupting your day.",
   },
-]
+] as const
 
 export function Problem() {
   return (
@@ -36,14 +39,14 @@ export function Problem() {
           </p>
         </div>
 
-        <ul className="flex min-w-0 flex-col border-b border-hairline">
+        <ul className="flex min-w-0 flex-col gap-3">
           {scenarios.map((item, i) => (
-            <li key={item.key} className="border-t border-hairline">
-              <Reveal delay={i * 0.08} className="flex gap-5 py-6">
-                <span className="pt-[3px] font-mono text-xs text-accent">{item.key}</span>
+            <li key={item.key}>
+              <Reveal delay={i * 0.08} className="flex gap-4 rounded-2xl border border-line bg-panel p-5 shadow-card">
+                <IconTile name={item.icon} />
                 <div>
                   <h3 className="text-[17px] font-semibold">{item.title}</h3>
-                  <p className="mt-[7px] text-[15px] leading-relaxed text-fg-subtle">{item.body}</p>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-fg-muted">{item.body}</p>
                 </div>
               </Reveal>
             </li>

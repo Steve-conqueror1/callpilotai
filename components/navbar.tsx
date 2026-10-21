@@ -1,39 +1,42 @@
 import { CallDemoButton, Logo } from "@/components/brand"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { site } from "@/lib/site"
 
 const links = [
   { href: "#problem", label: "Why" },
-  { href: "#how", label: "How" },
+  { href: "#how", label: "How it works" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#faq", label: "FAQ" },
 ]
 
+const linkClass = "text-[15px] font-medium whitespace-nowrap text-fg-muted transition-colors hover:text-fg"
+
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-hairline bg-ink/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-[1240px] items-center gap-[26px] px-7 py-[15px]" aria-label="Main">
+    <header className="sticky top-0 z-50 border-b border-line bg-bar backdrop-blur-md">
+      <nav className="mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-5 sm:gap-6 sm:px-7" aria-label="Main">
         <a href="#top" className="shrink-0">
           <Logo />
         </a>
-        <ul className="ml-auto hidden items-center gap-[26px] md:flex">
+        <ul className="ml-auto hidden items-center gap-6 lg:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="font-mono text-xs tracking-[0.04em] whitespace-nowrap text-fg-subtle uppercase transition-colors hover:text-fg"
-              >
+              <a href={link.href} className={linkClass}>
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-        <a
-          href={site.login}
-          className="ml-auto font-mono text-xs tracking-[0.04em] whitespace-nowrap text-fg-subtle uppercase transition-colors hover:text-fg md:ml-0"
-        >
-          Sign in
-        </a>
-        <CallDemoButton size="sm" location="navbar" />
+        <span className="ml-auto flex items-center gap-2 sm:gap-3 lg:ml-0">
+          <a href={site.login} className={linkClass}>
+            Sign in
+          </a>
+          {/* Phones follow the device theme; the toggle needs room only from sm up. */}
+          <span className="hidden sm:block">
+            <ThemeToggle />
+          </span>
+          <CallDemoButton size="sm" location="navbar" />
+        </span>
       </nav>
     </header>
   )

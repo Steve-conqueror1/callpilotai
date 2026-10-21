@@ -4,14 +4,14 @@ import { Logo } from "@/components/brand"
 import { Container } from "@/components/section"
 import { site } from "@/lib/site"
 
-const linkClass = "text-[13.5px] text-fg-faint transition-colors hover:text-fg"
+const linkClass = "text-sm font-medium text-fg-muted transition-colors hover:text-fg"
 
 export function Footer() {
   return (
     <footer>
       <Container className="flex flex-wrap items-center gap-x-8 gap-y-[18px] py-9">
         <Logo small />
-        <span className="text-[13.5px] text-fg-faint">
+        <span className="text-sm text-fg-muted">
           AI receptionists for Canadian small businesses · {site.region}
         </span>
         <nav aria-label="Footer" className="flex flex-wrap items-center gap-5 md:ml-auto">
@@ -33,7 +33,7 @@ export function Footer() {
           <a href={site.signup} data-cta-location="footer" className={linkClass}>
             Start free trial
           </a>
-          <span className="text-[13.5px] text-fg-dim">
+          <span className="text-sm text-fg-faint">
             © {new Date().getFullYear()} {site.name}
           </span>
         </nav>

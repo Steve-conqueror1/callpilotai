@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme inline {
   /* Brand palette → utilities like bg-ink, text-fg-muted, border-line */
   --color-ink: var(--ink);
@@ -33,6 +35,15 @@
   --color-on-bone: var(--on-bone);
   --color-on-bone-muted: var(--on-bone-muted);
   --color-on-bone-label: var(--on-bone-label);
+  --color-tint: var(--tint);
+  --color-tint-2: var(--tint-2);
+  --color-success-soft: var(--success-soft);
+  --color-ai-soft: var(--ai-soft);
+  --color-ai-border: var(--ai-border);
+  --color-logo: var(--logo);
+  --color-focus: var(--focus);
+  --color-bar: var(--bar);
+  --shadow-card: var(--shadow-1);
 
   /* shadcn tokens */
   --color-background: var(--background);
@@ -53,8 +64,8 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  --font-sans: var(--font-schibsted), Helvetica, Arial, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-sans: var(--font-instrument), Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
   --font-heading: var(--font-sans);
 
   --radius-sm: calc(var(--radius) * 0.6);
@@ -83,47 +94,60 @@
   }
 }
 
+/*
+ * CallPilot design tokens (design-ref/CallPilot Web - Dashboards.html), the same values as the
+ * app's client/app/globals.css: keep the two in sync. The site's older names (ink, panel,
+ * fg-muted, accent-soft…) are kept and point at the new values.
+ *
+ * Light is the default; dark comes from data-theme="dark" on <html>, which the pre-paint
+ * script in app/layout.tsx sets from the saved choice or the device setting.
+ */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Brand palette */
-  --ink: #0A0C0F;
-  --band: #0C0F13;
-  --hairline: #1B2128;
-  --accent: #4C6BFF;
-  --bone: #F2F0EC;
-  --signal: #4ADE9E;
+  /* Brand */
+  --logo: #4C6BFF; /* logo mark only */
+  --accent: #3D5AF1; /* fills: primary buttons */
+  --accent-hover: #2F49D1;
+  --accent-soft: #3D5AF1; /* links, icons, highlighted words */
+  --accent-pale: #3D5AF1;
+  --accent-glow: #FFFFFF; /* the dot on a filled button */
+  --accent-mist: #475467;
+  --accent-deep: #2F49D1;
+  --accent-night: #E9EDFF;
+  --tint: #E9EDFF; /* soft blue fill */
+  --tint-2: #C9D3FF;
+  --focus: #3D5AF1;
+  --signal: #13703F; /* live, booked */
+  --success-soft: #E2F4E9;
+  --ai-soft: #F2F4FF;
+  --ai-border: #D9E0FF;
 
   /* Surfaces */
-  --panel: #0E1217;
-  --panel-head: #11161C;
-  --raised: #141A21;
-  --line: #1F262F;
-  --line-strong: #2A323C;
-  --line-hover: #3A424C;
+  --ink: #F4F5F8; /* page */
+  --band: #FFFFFF; /* alternate section band */
+  --bone: #FFFFFF;
+  --panel: #FFFFFF; /* cards */
+  --panel-head: #FAFBFC;
+  --raised: #EEF0F4; /* quiet fills */
+  --bar: rgba(255, 255, 255, 0.92);
+  --hairline: #E9ECF1;
+  --line: #DDE1E8;
+  --line-strong: #C5CBD6;
+  --line-hover: #98A1B2;
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.05);
 
-  /* Text on dark */
-  --fg: #EDEEF0;
-  --fg-soft: #D5D9DE;
-  --fg-muted: #A2AAB3;
-  --fg-subtle: #8F979F;
-  --fg-faint: #79818A;
-  --label: #6B737C;
-  --fg-dim: #5C646C;
-
-  /* Accent tints */
-  --accent-hover: #3B59E8;
-  --accent-soft: #7E97FF;
-  --accent-pale: #A8B8FF;
-  --accent-glow: #BFCCFF;
-  --accent-mist: #9FB0D8;
-  --accent-deep: #2B3EA8;
-  --accent-night: #16204F;
-
-  /* Text on bone */
-  --on-bone: #0F1216;
-  --on-bone-muted: #4C5154;
-  --on-bone-label: #6E736F;
+  /* Text */
+  --fg: #101828;
+  --fg-soft: #344054;
+  --fg-muted: #475467;
+  --fg-subtle: #475467;
+  --fg-faint: #5F6879;
+  --label: #5F6879;
+  --fg-dim: #5F6879;
+  --on-bone: #101828;
+  --on-bone-muted: #475467;
+  --on-bone-label: #5F6879;
 
   /* shadcn tokens, mapped onto the palette */
   --background: var(--ink);
@@ -146,6 +170,48 @@
   --radius: 0.625rem;
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --accent-hover: #3550DB;
+  --accent-soft: #8EA0FF;
+  --accent-pale: #8EA0FF;
+  --accent-mist: #B0B8C6;
+  --accent-deep: #8EA0FF;
+  --accent-night: #1D2550;
+  --tint: #1D2550;
+  --tint-2: #33408A;
+  --focus: #8EA0FF;
+  --signal: #5CCF8B;
+  --success-soft: #0F2E1C;
+  --ai-soft: #161B30;
+  --ai-border: #2A3466;
+
+  --ink: #0C0F14;
+  --band: #10141A;
+  --bone: #151920;
+  --panel: #151920;
+  --panel-head: #12161C;
+  --raised: #1C212A;
+  --bar: rgba(21, 25, 32, 0.92);
+  --hairline: #232934;
+  --line: #2B313C;
+  --line-strong: #3A4250;
+  --line-hover: #5B6474;
+  --shadow-1: none;
+
+  --fg: #EDF0F5;
+  --fg-soft: #D5DBE5;
+  --fg-muted: #B0B8C6;
+  --fg-subtle: #B0B8C6;
+  --fg-faint: #8C95A6;
+  --label: #8C95A6;
+  --fg-dim: #8C95A6;
+  --on-bone: #EDF0F5;
+  --on-bone-muted: #B0B8C6;
+  --on-bone-label: #8C95A6;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -156,10 +222,15 @@
   body {
     @apply bg-background text-foreground antialiased;
     text-wrap: pretty;
+    font-variant-numeric: tabular-nums;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
   }
   ::selection {
-    background: var(--accent);
-    color: #FFFFFF;
+    background: var(--tint-2);
+    color: var(--fg);
   }
 }
 
