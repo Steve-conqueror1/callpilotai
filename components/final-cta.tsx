@@ -6,7 +6,7 @@ export function FinalCta() {
   return (
     <section id="get-started" aria-labelledby="cta-title" className="border-b border-hairline bg-band">
       <Container className="py-[clamp(64px,8vw,120px)] text-center">
-        <h2 id="cta-title" className="mx-auto max-w-[20ch] text-[clamp(34px,4.6vw,62px)] leading-none font-semibold tracking-[-0.04em] text-balance">
+        <h2 id="cta-title" className="mx-auto max-w-[20ch] text-[clamp(34px,4.6vw,56px)] leading-[1.06] font-semibold tracking-[-0.03em] text-balance">
           Stop losing jobs to a ringing phone.
         </h2>
         <p className="mx-auto mt-[22px] max-w-[50ch] text-[17.5px] leading-relaxed text-fg-muted">
@@ -16,7 +16,7 @@ export function FinalCta() {
           <CallDemoButton size="xl" location="final_cta" />
           <GetStartedButton size="xl" location="final_cta" />
         </div>
-        <p className="mt-5 font-mono text-[13px] text-fg-faint">
+        <p className="mt-5 text-sm text-fg-muted">
           {site.phoneDisplay} · {site.trial}
         </p>
       </Container>

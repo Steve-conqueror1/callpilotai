@@ -1,20 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { site } from "@/lib/site";
+import { ICON_FONT_URL } from "@/components/icon";
 
-const schibsted = Schibsted_Grotesk({
-  variable: "--font-schibsted",
+// Same typefaces as the app (app.callpilotai.ca) and the CallPilot Connect mobile app.
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["500"],
   display: "swap",
 });
 
@@ -37,15 +39,30 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0C0F",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#151920" },
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+  ],
 };
+
+// Applies the theme before first paint so there is no flash: the saved choice if there is one,
+// otherwise the device setting (light when unknown), followed live until a choice is saved.
+const themeScript = `try{var m=matchMedia("(prefers-color-scheme: dark)"),a=function(){var t=null;try{t=localStorage.getItem("cp-theme")}catch(e){}document.documentElement.dataset.theme=t==="dark"||t==="light"?t:m.matches?"dark":"light"};a();m.addEventListener("change",a)}catch(e){}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-CA"
-      className={`${schibsted.variable} ${jetbrains.variable} h-full`}
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${instrument.variable} ${plexMono.variable} h-full`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Material Symbols, subset to the icons in components/icon.tsx. */}
+        <link rel="stylesheet" href={ICON_FONT_URL} />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         {gaId && (

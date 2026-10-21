@@ -1,4 +1,5 @@
 import { GetStartedButton, CallDemoButton } from "@/components/brand"
+import { Icon } from "@/components/icon"
 import { Container, Eyebrow } from "@/components/section"
 import { site } from "@/lib/site"
 
@@ -11,15 +12,19 @@ const prompts = [
 
 export function Demo() {
   return (
-    <section id="demo" aria-labelledby="demo-title" className="relative scroll-mt-16 overflow-hidden border-b border-hairline">
+    <section id="demo" aria-labelledby="demo-title" className="relative scroll-mt-16 overflow-hidden border-b border-hairline bg-band">
+      {/* Glow in dark mode only; the light theme stays flat. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-[260px] left-1/2 h-[620px] w-[900px] -translate-x-1/2 bg-[radial-gradient(ellipse,color-mix(in_srgb,var(--accent)_14%,transparent)_0%,transparent_65%)]"
+        className="pointer-events-none absolute -bottom-[260px] left-1/2 hidden h-[620px] w-[900px] -translate-x-1/2 bg-[radial-gradient(ellipse,color-mix(in_srgb,var(--accent)_12%,transparent)_0%,transparent_65%)] dark:block"
       />
       <Container className="relative grid items-center gap-[clamp(32px,5vw,72px)] py-[clamp(56px,7vw,108px)] md:grid-cols-2">
         <div className="min-w-0">
           <Eyebrow className="text-signal">04 — Try it now</Eyebrow>
-          <h2 id="demo-title" className="mt-4 text-[clamp(32px,3.8vw,50px)] leading-[1.02] font-semibold tracking-[-0.035em] text-balance">
+          <h2
+            id="demo-title"
+            className="mt-3 text-[clamp(32px,3.8vw,48px)] leading-[1.08] font-semibold tracking-[-0.03em] text-balance"
+          >
             Call the demo agent. It picks up.
           </h2>
           <p className="mt-5 max-w-[44ch] text-[17px] leading-relaxed text-fg-muted">
@@ -30,17 +35,17 @@ export function Demo() {
             <CallDemoButton location="demo" />
             <GetStartedButton location="demo" />
           </div>
-          <p className="mt-[18px] font-mono text-sm text-fg-faint">{site.phoneDisplay}</p>
+          <p className="mt-[18px] text-[15px] font-semibold text-fg">{site.phoneDisplay}</p>
         </div>
 
-        <div className="min-w-0 rounded-[14px] border border-line bg-panel p-7">
-          <Eyebrow>Things to ask it</Eyebrow>
+        <div className="min-w-0 rounded-2xl border border-line bg-panel p-6 shadow-card">
+          <span className="flex items-center gap-2">
+            <Icon name="record_voice_over" size={20} className="text-accent-soft" />
+            <Eyebrow>Things to ask it</Eyebrow>
+          </span>
           <ul className="mt-5 flex flex-col gap-2.5">
             {prompts.map((prompt) => (
-              <li
-                key={prompt}
-                className="rounded-[9px] bg-raised px-4 py-3.5 text-[15.5px] leading-normal text-fg-soft"
-              >
+              <li key={prompt} className="rounded-[14px_14px_14px_4px] bg-raised px-4 py-3 text-[15px] leading-normal text-fg">
                 &ldquo;{prompt}&rdquo;
               </li>
             ))}

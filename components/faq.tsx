@@ -33,7 +33,7 @@ export function Faq() {
     <section id="faq" aria-labelledby="faq-title" className="scroll-mt-16 border-b border-hairline">
       <Container className={`max-w-[900px] ${sectionPadding}`}>
         <Eyebrow>06 — FAQ</Eyebrow>
-        <SectionTitle id="faq-title" className="mb-9">Questions owners ask us.</SectionTitle>
+        <SectionTitle id="faq-title" className="mb-8">Questions owners ask us.</SectionTitle>
         <FaqAccordion items={faqs} />
       </Container>
     </section>
