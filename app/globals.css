@@ -170,46 +170,53 @@
   --radius: 0.625rem;
 }
 
+/*
+ * Dark mode keeps the site's original dark palette (from before the 2026-10 redesign), by
+ * choice: it differs from the app's dark tokens. The tint / success / AI values are derived
+ * from it for the newer components.
+ */
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --accent-hover: #3550DB;
-  --accent-soft: #8EA0FF;
-  --accent-pale: #8EA0FF;
-  --accent-mist: #B0B8C6;
-  --accent-deep: #8EA0FF;
-  --accent-night: #1D2550;
-  --tint: #1D2550;
-  --tint-2: #33408A;
-  --focus: #8EA0FF;
-  --signal: #5CCF8B;
-  --success-soft: #0F2E1C;
-  --ai-soft: #161B30;
-  --ai-border: #2A3466;
+  --accent: #4C6BFF;
+  --accent-hover: #3B59E8;
+  --accent-soft: #7E97FF;
+  --accent-pale: #A8B8FF;
+  --accent-glow: #BFCCFF;
+  --accent-mist: #9FB0D8;
+  --accent-deep: #2B3EA8;
+  --accent-night: #16204F;
+  --tint: #16204F;
+  --tint-2: #2B3EA8;
+  --focus: #7E97FF;
+  --signal: #4ADE9E;
+  --success-soft: #0E2A20;
+  --ai-soft: #10162B;
+  --ai-border: #22306B;
 
-  --ink: #0C0F14;
-  --band: #10141A;
-  --bone: #151920;
-  --panel: #151920;
-  --panel-head: #12161C;
-  --raised: #1C212A;
-  --bar: rgba(21, 25, 32, 0.92);
-  --hairline: #232934;
-  --line: #2B313C;
-  --line-strong: #3A4250;
-  --line-hover: #5B6474;
+  --ink: #0A0C0F;
+  --band: #0C0F13;
+  --bone: #0E1217;
+  --panel: #0E1217;
+  --panel-head: #11161C;
+  --raised: #141A21;
+  --bar: rgba(10, 12, 15, 0.8);
+  --hairline: #1B2128;
+  --line: #1F262F;
+  --line-strong: #2A323C;
+  --line-hover: #3A424C;
   --shadow-1: none;
 
-  --fg: #EDF0F5;
-  --fg-soft: #D5DBE5;
-  --fg-muted: #B0B8C6;
-  --fg-subtle: #B0B8C6;
-  --fg-faint: #8C95A6;
-  --label: #8C95A6;
-  --fg-dim: #8C95A6;
-  --on-bone: #EDF0F5;
-  --on-bone-muted: #B0B8C6;
-  --on-bone-label: #8C95A6;
+  --fg: #EDEEF0;
+  --fg-soft: #D5D9DE;
+  --fg-muted: #A2AAB3;
+  --fg-subtle: #8F979F;
+  --fg-faint: #79818A;
+  --label: #6B737C;
+  --fg-dim: #5C646C;
+  --on-bone: #EDEEF0;
+  --on-bone-muted: #A2AAB3;
+  --on-bone-label: #6B737C;
 }
 
 @layer base {

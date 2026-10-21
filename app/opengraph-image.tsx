@@ -8,14 +8,14 @@ export const contentType = "image/png"
 
 // ImageResponse renders outside the browser, so CSS variables aren't available.
 // These mirror the dark-theme tokens in app/globals.css.
-const ink = "#0C0F14"
-const hairline = "#232934"
+const ink = "#0A0C0F"
+const hairline = "#1B2128"
 const accent = "#4C6BFF"
-const accentSoft = "#8EA0FF"
-const fg = "#EDF0F5"
-const fgMuted = "#B0B8C6"
-const fgFaint = "#8C95A6"
-const signal = "#5CCF8B"
+const accentSoft = "#7E97FF"
+const fg = "#EDEEF0"
+const fgMuted = "#A2AAB3"
+const fgFaint = "#79818A"
+const signal = "#4ADE9E"
 
 export default function OpengraphImage() {
   return new ImageResponse(
