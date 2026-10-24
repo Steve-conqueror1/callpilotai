@@ -14,7 +14,7 @@ const linkClass = "text-[15px] font-medium whitespace-nowrap text-fg-muted trans
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-bar backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-5 sm:gap-6 sm:px-7" aria-label="Main">
+      <nav className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:gap-6 sm:px-7" aria-label="Main">
         <a href="#top" className="shrink-0">
           <Logo />
         </a>
@@ -27,7 +27,7 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <span className="ml-auto flex items-center gap-2 sm:gap-3 lg:ml-0">
+        <span className="ml-auto flex items-center gap-3 lg:ml-0">
           <a href={site.login} className={linkClass}>
             Sign in
           </a>
@@ -35,7 +35,7 @@ export function Navbar() {
           <span className="hidden sm:block">
             <ThemeToggle />
           </span>
-          <CallDemoButton size="sm" location="navbar" />
+                    <CallDemoButton size="sm" compact location="navbar" className="px-3 sm:px-4" />
         </span>
       </nav>
     </header>

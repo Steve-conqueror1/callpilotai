@@ -37,6 +37,8 @@ const iconSize = { sm: 18, lg: 20, xl: 22 }
 
 type CtaProps = {
   size?: keyof typeof ctaSizes
+  /** Phones get a short label ("Call demo") so the navbar fits a 360px screen. */
+  compact?: boolean
   /** Where on the page the CTA sits; sent with the conversion event. */
   location: string
   className?: string
@@ -44,7 +46,7 @@ type CtaProps = {
 
 // Plain anchors on purpose: crawlers and phones need a real href, and analytics
 // picks up clicks through a delegated listener (instrumentation-client.ts).
-export function CallDemoButton({ size = "lg", location, className }: CtaProps) {
+export function CallDemoButton({ size = "lg", compact, location, className }: CtaProps) {
   return (
     <a
       href={`tel:${site.phone}`}
@@ -52,7 +54,14 @@ export function CallDemoButton({ size = "lg", location, className }: CtaProps) {
       className={cn(ctaBase, "bg-accent text-white hover:bg-accent-hover hover:text-white", ctaSizes[size], className)}
     >
       <Icon name="call" size={iconSize[size]} filled />
-      Call Demo Agent
+      {compact ? (
+        <>
+          <span className="sm:hidden">Call demo</span>
+          <span className="hidden sm:inline">Call Demo Agent</span>
+        </>
+      ) : (
+        "Call Demo Agent"
+      )}
     </a>
   )
 }
